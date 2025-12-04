@@ -41,8 +41,7 @@ const DEFAULT_MAX_BLOCK: usize = 1024 * 1024;
 const DEFAULT_SKIP_AHEAD_THRESHOLD: u64 = 2 * 1024 * 1024; // 2MB
 
 /// A hint to the [`SeekableHttpReaderEngine`] about the expected access pattern.
-#[derive(Debug, Clone, Copy, Eq, PartialEq)]
-#[derive(Default)]
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Default)]
 pub(crate) enum AccessPattern {
     /// We expect accesses all over the file.
     #[default]
@@ -52,7 +51,6 @@ pub(crate) enum AccessPattern {
     /// reading from roughly the same area of the file.
     SequentialIsh,
 }
-
 
 /// Errors that may be returned by a [`SeekableHttpReaderEngine` or `SeekableHttpReader`].
 #[derive(Error, Debug)]
